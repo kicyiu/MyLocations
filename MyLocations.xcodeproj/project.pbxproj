@@ -15,6 +15,7 @@
 		6E37E15C219F9C1800FF73A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E37E15B219F9C1800FF73A3 /* Assets.xcassets */; };
 		6E37E15F219F9C1800FF73A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E37E15D219F9C1800FF73A3 /* LaunchScreen.storyboard */; };
 		6E5F47EB21A38D5100F9D3F8 /* CategoryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5F47EA21A38D5100F9D3F8 /* CategoryPickerViewController.swift */; };
+		6E5F47ED21A645AC00F9D3F8 /* HudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5F47EC21A645AC00F9D3F8 /* HudView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		6E37E15E219F9C1800FF73A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6E37E160219F9C1900FF73A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6E5F47EA21A38D5100F9D3F8 /* CategoryPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerViewController.swift; sourceTree = "<group>"; };
+		6E5F47EC21A645AC00F9D3F8 /* HudView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				6E37E160219F9C1900FF73A3 /* Info.plist */,
 				6E254CD421A1EA5400A32B18 /* LocationDetailsViewController..swift */,
 				6E5F47EA21A38D5100F9D3F8 /* CategoryPickerViewController.swift */,
+				6E5F47EC21A645AC00F9D3F8 /* HudView.swift */,
 			);
 			path = MyLocations;
 			sourceTree = "<group>";
@@ -146,6 +149,7 @@
 			files = (
 				6E37E157219F9C1600FF73A3 /* SecondViewController.swift in Sources */,
 				6E37E153219F9C1600FF73A3 /* AppDelegate.swift in Sources */,
+				6E5F47ED21A645AC00F9D3F8 /* HudView.swift in Sources */,
 				6E37E155219F9C1600FF73A3 /* CurrentLocationViewController.swift in Sources */,
 				6E5F47EB21A38D5100F9D3F8 /* CategoryPickerViewController.swift in Sources */,
 				6E254CD521A1EA5400A32B18 /* LocationDetailsViewController..swift in Sources */,
