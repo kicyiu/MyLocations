@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import CoreData
 
 class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate {
 
@@ -31,6 +32,8 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     var lastGeocodingError: Error?
     
     var timer: Timer?
+    
+    var managedObjectContext: NSManagedObjectContext!
     
     @IBAction func getLocation() {
         
@@ -243,29 +246,18 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     }
 
     func string(from placemark: CLPlacemark) -> String {
-        // 1
         var line1 = ""
-        // 2
-        if let s = placemark.subThoroughfare {
-            line1 += s + " "
-        }
-        // 3
-        if let s = placemark.thoroughfare {
-            line1 += s
-        }
-        // 4
+        line1 = add(text: placemark.subThoroughfare, toLine: line1,
+                    separatedBy: "")
+        line1 = add(text: placemark.thoroughfare, toLine: line1,
+                    separatedBy: " ")
         var line2 = ""
-        if let s = placemark.locality {
-            line2 += s + " "
-        }
-        if let s = placemark.administrativeArea {
-            line2 += s + " "
-        }
-        if let s = placemark.postalCode {
-            line2 += s
-        }
-        // 5
-        return line1 + "\n" + line2
+        line2 = add(text: placemark.locality, toLine: line2, separatedBy: "")
+        line2 = add(text: placemark.administrativeArea, toLine: line2,
+                    separatedBy: " ")
+        line2 = add(text: placemark.postalCode, toLine: line2,
+                    separatedBy: " ")
+        return add(text: line2, toLine: line1, separatedBy: "\n")
     }
     
     @objc func didTimeOut() {
@@ -289,7 +281,20 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
             //It’s perfectly safe to force unwrap at this point because the Tag Location button that triggers the segue won’t be visible unless a location is found
             controller.coordinate = location!.coordinate
             controller.placemark = placemark
+            controller.managedObjectContext = managedObjectContext
         }
+    }
+    
+    func add(text: String?, toLine line: String,
+             separatedBy separator: String) -> String {
+        var result = line
+        if let text = text {
+            if !line.isEmpty {
+                result += separator
+            }
+            result += text
+        }
+        return result
     }
     
 
